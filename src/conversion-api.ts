@@ -47,6 +47,8 @@ const fbEvent = (event: FBEvent): void => {
 
       ...(event.value && { value: event.value }),
       ...(event.currency && { currency: event.currency }),
+      ...(event.numItems && { num_items: event.numItems }),
+      ...(event.searchString && { search_string: event.searchString }),
     };
 
     window.fbq('track', event.eventName, clientSidePayload, { eventID: eventId });
@@ -70,6 +72,8 @@ const fbEvent = (event: FBEvent): void => {
       contentName: event.contentName,
       contentIds: event.contentIds,
       products: event.products,
+      numItems: event.numItems,
+      searchString: event.searchString,
       value: event.value,
       currency: event.currency,
       userAgent: navigator.userAgent,

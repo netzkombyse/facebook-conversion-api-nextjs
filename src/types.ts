@@ -10,12 +10,12 @@ export type FBEvent = {
   zipCode?: string
   contentName?: string
   contentIds?: Array<string> | null
+  numItems? :number,
+  searchString?: string,
   products?: {
     sku: string
     quantity: number
   }[],
-  numItems?:number
-  contents?: Array<string> | null
   value?: number
   currency?: string
   enableStandardPixel?: boolean

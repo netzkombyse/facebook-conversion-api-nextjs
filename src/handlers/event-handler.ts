@@ -20,6 +20,7 @@ type Arguments = {
   }[]
   value?: number
   numItems: number
+  searchString?: string
   contents?: Array<string> | null
   currency?: string
   userAgent: string
@@ -64,6 +65,7 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     products,
     value,
     numItems,
+    searchString,
     contents,
     currency,
     userAgent,
@@ -92,6 +94,7 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     products,
     value,
     numItems,
+    searchString,
     contents,
     currency,
     fbp: getClientFbp(req),

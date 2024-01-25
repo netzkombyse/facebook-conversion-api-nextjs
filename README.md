@@ -2,6 +2,8 @@ maxout Facebook / Meta Conversion API for Next.js
 
 > Next.js wrapper for [Facebook's Conversion API](https://developers.facebook.com/docs/marketing-api/conversions-api/)
 
+This package is forked from [@rivercode/facebook-conversion-api-nextjs](https://github.com/RivercodeAB/facebook-conversion-api-nextjs)
+
 # Facebook / Meta Conversion API for Next.js
 This package helps you implement Facebook Conversion API in Next.js.
 
@@ -17,18 +19,18 @@ Support Next.js API routes on both Vercel and AWS Amplify.
 
 NPM
 ```bash
-npm install @rivercode/facebook-conversion-api-nextjs
+npm install @netzkombyse/facebook-conversion-api-nextjs
 ```
 
 Yarn
 ```bash
-yarn add @rivercode/facebook-conversion-api-nextjs
+yarn add @netzkombyse/facebook-conversion-api-nextjs
 ```
 
 ## 1. Create Next.js API Route
 pages/api/fb-events.js
 ```jsx
-import { fbEventsHandler } from '@rivercode/facebook-conversion-api-nextjs/handlers';
+import { fbEventsHandler } from '@netzkombyse/facebook-conversion-api-nextjs/handlers';
 
 export default fbEventsHandler;
 ```
@@ -49,7 +51,7 @@ This is only needed if you want to fire standard Pixel Events.
 ### Add Facebook Pixel Provider & Script
 pages/_app.js
 ```jsx
-import { FBPixelScript, FBPixelProvider } from '@rivercode/facebook-conversion-api-nextjs/components';
+import { FBPixelScript, FBPixelProvider } from '@netzkombyse/facebook-conversion-api-nextjs/components';
 
 ...
 <>
@@ -64,7 +66,7 @@ import { FBPixelScript, FBPixelProvider } from '@rivercode/facebook-conversion-a
 ## 3. Start Sending Events
 Trigger the events you need. For example, add to cart or purchase events.
 ```jsx
-import { fbEvent } from '@rivercode/facebook-conversion-api-nextjs';
+import { fbEvent } from '@netzkombyse/facebook-conversion-api-nextjs';
 
 useEffect(() => {
     fbEvent({
@@ -79,6 +81,7 @@ useEffect(() => {
         zipCode: 'zipCode', // optional
         contentName: 'Product-Label' // optional
         contentIds: ['123456'], // optional
+        numItems: 1, // optional
         products: [{ // optional
             sku: 'product123',
             quantity: 1,

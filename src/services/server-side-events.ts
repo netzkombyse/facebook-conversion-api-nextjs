@@ -19,7 +19,7 @@ type Arguments = {
     quantity: number
   }[],
   numItems?: number
-  contents?: Array<string> | null
+  searchString?: string
   value?: number
   currency?: string
   fbp: string
@@ -49,6 +49,8 @@ type Response = {
  * @param contentName
  * @param contentIds
  * @param products
+ * @param numItems
+ * @param searchString
  * @param value
  * @param currency
  * @param fbc
@@ -73,7 +75,7 @@ const sendServerSideEvent = async ({
   contentIds,
   products,  
   numItems,
-  contents,
+  searchString,
   value,
   currency,
   fbc,
@@ -139,7 +141,9 @@ const sendServerSideEvent = async ({
       content_name: contentName,
       content_ids: contentIds,
       num_items: numItems,
-      contents: contents
+    },
+    ...(searchString) && {
+      search_string: searchString,
     },
     custom_data: {
       ...(value && { value }),

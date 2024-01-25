@@ -1,6 +1,6 @@
 {
   "name": "@netzkombyse/facebook-conversion-api-nextjs",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "Facebook Conversion API for Next.js based on RivercodeAB",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
