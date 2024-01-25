@@ -77,6 +77,8 @@ useEffect(() => {
         country: 'country', // optional
         city: 'city', // optional
         zipCode: 'zipCode', // optional
+        contentName: 'Product-Label' // optional
+        contentIds: ['123456'], // optional
         products: [{ // optional
             sku: 'product123',
             quantity: 1,
