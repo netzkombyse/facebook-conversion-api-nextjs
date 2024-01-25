@@ -19,6 +19,8 @@ type Arguments = {
     quantity: number
   }[]
   value?: number
+  numItems: number
+  contents?: Array<string> | null
   currency?: string
   userAgent: string
   sourceUrl: string
@@ -61,6 +63,8 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     contentIds,
     products,
     value,
+    numItems,
+    contents,
     currency,
     userAgent,
     sourceUrl,
@@ -87,6 +91,8 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     contentIds,
     products,
     value,
+    numItems,
+    contents,
     currency,
     fbp: getClientFbp(req),
     fbc: getClientFbc(req),

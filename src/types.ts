@@ -15,7 +15,8 @@ export type FBEvent = {
     quantity: number
   }[],
   numItems?:number
-  value?: string
+  contents?: Array<string> | null
+  value?: number
   currency?: string
   enableStandardPixel?: boolean
   testEventCode?: string

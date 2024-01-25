@@ -18,7 +18,8 @@ type Arguments = {
     sku: string
     quantity: number
   }[],
-  numItems?:number
+  numItems?: number
+  contents?: Array<string> | null
   value?: number
   currency?: string
   fbp: string
@@ -72,6 +73,7 @@ const sendServerSideEvent = async ({
   contentIds,
   products,  
   numItems,
+  contents,
   value,
   currency,
   fbc,
@@ -136,7 +138,8 @@ const sendServerSideEvent = async ({
       content_type: 'product',
       content_name: contentName,
       content_ids: contentIds,
-      num_items: numItems
+      num_items: numItems,
+      contents: contents
     },
     custom_data: {
       ...(value && { value }),
