@@ -12,6 +12,8 @@ type Arguments = {
   country?: string
   city?: string
   zipCode?: string
+  contentName?: string
+  contentIds?: Array<string> | null
   products: {
     sku: string
     quantity: number
@@ -42,6 +44,8 @@ type Response = {
  * @param country
  * @param city
  * @param zipCode
+ * @param contentName
+ * @param contentIds
  * @param products
  * @param value
  * @param currency
@@ -63,7 +67,9 @@ const sendServerSideEvent = async ({
   country,
   city,
   zipCode,
-  products,
+  contentName,
+  contentIds,
+  products,  
   value,
   currency,
   fbc,
@@ -109,6 +115,11 @@ const sendServerSideEvent = async ({
       }),
       fbc,
       fbp,
+    },
+    ...(contentIds) && {
+      content_type: 'product',
+      content_name: contentName,
+      content_ids: contentIds,
     },
     ...(products && products.length > 0) && {
       content_type: 'product',

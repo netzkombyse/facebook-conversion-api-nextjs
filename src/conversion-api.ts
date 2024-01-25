@@ -39,6 +39,12 @@ const fbEvent = (event: FBEvent): void => {
           }
         )),
       },
+      ...(event?.contentIds) && {
+        content_type: 'product',
+        content_name: event.contentName,
+        content_ids: event.contentIds,
+      },
+
       ...(event.value && { value: event.value }),
       ...(event.currency && { currency: event.currency }),
     };
@@ -61,6 +67,8 @@ const fbEvent = (event: FBEvent): void => {
       country: event.country,
       city: event.city,
       zipCode: event.zipCode,
+      contentName: event.contentName,
+      contentIds: event.contentIds,
       products: event.products,
       value: event.value,
       currency: event.currency,

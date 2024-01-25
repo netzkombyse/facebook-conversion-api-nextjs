@@ -8,6 +8,8 @@ export type FBEvent = {
   country?: string
   city?: string
   zipCode?: string
+  contentName?: string
+  contentIds?: Array<string> | null
   products?: {
     sku: string
     quantity: number

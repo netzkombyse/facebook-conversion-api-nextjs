@@ -12,6 +12,8 @@ type Arguments = {
   country?: string
   city?: string
   zipCode?: string
+  contentName?: string
+  contentIds?: Array<string> | null
   products: {
     sku: string
     quantity: number
@@ -55,6 +57,8 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     country,
     city,
     zipCode,
+    contentName,
+    contentIds,
     products,
     value,
     currency,
@@ -79,6 +83,8 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     country,
     city,
     zipCode,
+    contentName,
+    contentIds,
     products,
     value,
     currency,
