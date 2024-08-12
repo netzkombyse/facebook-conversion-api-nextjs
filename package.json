@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxout/facebook-conversion-api-nextjs.git"
+    "url": "git+https://github.com/netzkombyse/facebook-conversion-api-nextjs.git"
   },
   "author": "Rivercode",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/maxout/facebook-conversion-api-nextjs/issues"
+    "url": "https://github.com/netzkombyse/facebook-conversion-api-nextjs/issues"
   },
-  "homepage": "https://github.com/maxout/facebook-conversion-api-nextjs#readme",
+  "homepage": "https://github.com/netzkombyse/facebook-conversion-api-nextjs#readme",
   "dependencies": {
     "formdata-node": "^4.4.1",
     "universal-cookie": "^4.0.4",
