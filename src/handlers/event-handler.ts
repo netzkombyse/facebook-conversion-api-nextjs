@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import { getClientIpAddress, getClientFbp, getClientFbc } from '../utils/request';
 import { sendServerSideEvent } from '../services/server-side-events';
 
@@ -35,7 +36,7 @@ type Arguments = {
  * @param res
  * @constructor
  */
-const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const eventHandler = async (req: NextApiRequest, data: any, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     return res.status(400).json({
       message: 'This route only accepts POST requests',
@@ -71,7 +72,7 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     userAgent,
     sourceUrl,
     testEventCode,
-  } = req.body as Arguments;
+  } = data as Arguments;
 
   if (!eventName) {
     return res.status(400).json({
@@ -110,17 +111,16 @@ const eventHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const success = response?.events_received === 1 ?? false;
 
   if (process.env.NEXT_PUBLIC_FB_DEBUG === 'true') {
-    return res.status(200).json({
-      debug: true,
-      success,
-      payload,
-      response,
-    });
+    return NextResponse.json(
+      { success, payload, response },
+      { status: 200 },
+    );
   }
 
-  return res.status(200).json({
-    success,
-  });
+  return NextResponse.json(
+    { success },
+    { status: 200 },
+  );
 };
 
 export default eventHandler;

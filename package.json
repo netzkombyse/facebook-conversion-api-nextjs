@@ -1,6 +1,6 @@
 {
   "name": "@netzkombyse/facebook-conversion-api-nextjs",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Facebook Conversion API for Next.js based on RivercodeAB",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
     "lint:tsc": "tsc",
     "link": "npx link",
-    "setup": "yarn install && yarn run link && yarn run watch"
+    "setup": "yarn install && yarn link && yarn run watch"
   },
   "repository": {
     "type": "git",
