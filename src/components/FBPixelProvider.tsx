@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { fbPageView } from '../conversion-api';
 
 type Props = {
@@ -7,16 +7,11 @@ type Props = {
 };
 
 const FBPixelProvider = ({ children }: Props) => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     fbPageView();
-
-    router.events.on('routeChangeComplete', fbPageView);
-    return () => {
-      router.events.off('routeChangeComplete', fbPageView);
-    };
-  }, [router.events]);
+  }, [pathname]);
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
